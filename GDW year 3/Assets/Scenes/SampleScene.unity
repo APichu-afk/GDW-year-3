@@ -7756,9 +7756,10 @@ GameObject:
   - component: {fileID: 476236388}
   - component: {fileID: 476236387}
   - component: {fileID: 476236386}
+  - component: {fileID: 476236389}
   m_Layer: 0
   m_Name: Player 2
-  m_TagString: Untagged
+  m_TagString: Player 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7772,7 +7773,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 476236385}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30dc9ec4ec7567044bb571ba74b15b52, type: 3}
+  m_Script: {fileID: 11500000, guid: cfa678ce2e789e34aaa54fedcf2f34af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 476236387}
@@ -7815,6 +7816,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &476236389
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476236385}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &477798890
 GameObject:
   m_ObjectHideFlags: 0
@@ -11537,7 +11552,7 @@ GameObject:
   - component: {fileID: 709462010}
   m_Layer: 0
   m_Name: Placeholder
-  m_TagString: Untagged
+  m_TagString: Player 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13510,6 +13525,7 @@ GameObject:
   - component: {fileID: 819430878}
   - component: {fileID: 819430877}
   - component: {fileID: 819430876}
+  - component: {fileID: 819430880}
   m_Layer: 0
   m_Name: Space Ship
   m_TagString: Untagged
@@ -13594,6 +13610,18 @@ Transform:
   m_Father: {fileID: 625549845}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 50.95, y: 73.9, z: 0}
+--- !u!114 &819430880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819430875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8def3e1585260d44af8aa9d645863fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &821407285
 GameObject:
   m_ObjectHideFlags: 0
@@ -14447,7 +14475,7 @@ GameObject:
   - component: {fileID: 867996930}
   m_Layer: 0
   m_Name: arm (1)
-  m_TagString: Untagged
+  m_TagString: Player 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18331,7 +18359,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1080341479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19601,6 +19629,9 @@ GameObject:
   - component: {fileID: 1169456711}
   - component: {fileID: 1169456710}
   - component: {fileID: 1169456709}
+  - component: {fileID: 1169456713}
+  - component: {fileID: 1169456712}
+  - component: {fileID: 1169456714}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -19660,6 +19691,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1169456712
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169456708}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1169456713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169456708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f427ff08fc13f1439e835e81de0b2d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &1169456714
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169456708}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &1177062644
 GameObject:
   m_ObjectHideFlags: 0
@@ -34574,7 +34647,7 @@ GameObject:
   - component: {fileID: 2139354312}
   m_Layer: 0
   m_Name: arm
-  m_TagString: Untagged
+  m_TagString: Player 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34750,7 +34823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2145591560
 MonoBehaviour:
   m_ObjectHideFlags: 0
