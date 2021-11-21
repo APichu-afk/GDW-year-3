@@ -679,6 +679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joystick: {fileID: 8680277937456105518}
   player: {fileID: 5710456759724643485}
+  gravity: 15
   speed: 5
 --- !u!1 &5710456760019468899
 GameObject:

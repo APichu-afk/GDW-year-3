@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MonsterWinScript : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class MonsterWinScript : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("Monsters win");
+            SceneManager.LoadScene("EndScreen");
         }
     }
 
