@@ -1,2 +1,2 @@
 # GDW-year-3
-Our thrid year game
+Our third year game
