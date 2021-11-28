@@ -378,12 +378,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5710456759724643487}
-  - component: {fileID: 5710456759724643473}
   - component: {fileID: 5710456759724643472}
   - component: {fileID: 5710456759724643476}
   - component: {fileID: 5710456759724643486}
   - component: {fileID: 5710456759724643485}
   - component: {fileID: 1368962107096887151}
+  - component: {fileID: 42727398242769987}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -399,7 +399,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5710456759724643484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -128.07, y: 10, z: 0}
+  m_LocalPosition: {x: -130, y: 10, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5710456758175057836}
@@ -407,21 +407,10 @@ Transform:
   - {fileID: 5710456760019468900}
   - {fileID: 5710456757916882729}
   - {fileID: 5710456758646748364}
+  - {fileID: 1547499367486232913}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5710456759724643473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5710456759724643484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f427ff08fc13f1439e835e81de0b2d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &5710456759724643472
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -493,6 +482,54 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c77c83f9-3b9d-47cf-a236-bfc107a2af18
     m_ActionName: Character/Look[/XInputControllerWindows/rightStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 42727398242769987}
+        m_TargetAssemblyTypeName: Attack, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 57ebd76f-5d31-4a9b-85d8-9f812831a046
+    m_ActionName: Character/Button1[/XInputControllerWindows/buttonSouth,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 42727398242769987}
+        m_TargetAssemblyTypeName: Attack, Assembly-CSharp
+        m_MethodName: Onpickup
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 71f3eaea-541b-4d6b-aea8-2243f5e28ee3
+    m_ActionName: Character/Button2[/XInputControllerWindows/buttonEast,/Keyboard/c]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 42727398242769987}
+        m_TargetAssemblyTypeName: Attack, Assembly-CSharp
+        m_MethodName: Onstart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 57f17d21-15ee-421b-ad04-7f102de0c728
+    m_ActionName: Character/Start[/Keyboard/enter,/XInputControllerWindows/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Character
@@ -549,6 +586,55 @@ MonoBehaviour:
   speed: 10
   camspeed: 20
   gravity: 15
+  moveinput: {x: 0, y: 0}
+  lookinput: {x: 0, y: 0}
+--- !u!114 &42727398242769987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5710456759724643484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4606caaab9c389b45b38b031aa1ef611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackpointhuman: {fileID: 1547499367486232913}
+  attackpointmonster: {fileID: 1547499367486232913}
+  attackrange: 1
+  monsterlayer:
+    serializedVersion: 2
+    m_Bits: 8
+  humanlayer:
+    serializedVersion: 2
+    m_Bits: 64
+  attack:
+    m_Name: Attack
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 51774138-1dac-494d-a9b4-69a4fa5ce765
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+  pickup:
+    m_Name: Pickup
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 10be67b9-5b86-4360-b497-1ee335eea4c4
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+  start:
+    m_Name: Start
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 5b17b019-2e89-43d6-b617-635338e9a2e3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+  gamestart: 0
+  humanhealth: 100
 --- !u!1 &5710456760019468899
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,3 +731,33 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &9098296400880490028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1547499367486232913}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1547499367486232913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9098296400880490028}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.26, z: 1.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5710456759724643487}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

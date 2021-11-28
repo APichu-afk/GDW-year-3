@@ -5,14 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Player 2
+  - Player 1
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Monster
   - Water
   - UI
-  - 
+  - Human
   - 
   - 
   - 

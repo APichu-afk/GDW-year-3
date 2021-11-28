@@ -6,13 +6,17 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
     public void PlayGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Game");//Starts the game
     }
 
     public void QuitGame()
     {
         Debug.Log("Quit game!");
-        Application.Quit();
+        Application.Quit();//Quits the application
     }
 
+    public void Editor()
+    {
+        SceneManager.LoadScene("LevelLeditor");
+    }
 }

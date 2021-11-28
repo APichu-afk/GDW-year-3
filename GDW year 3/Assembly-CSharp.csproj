@@ -53,14 +53,21 @@
     <UnityVersion>2021.1.20f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\PlayerWinCon.cs" />
-    <Compile Include="Assets\Scripts\PickupScript.cs" />
-    <Compile Include="Assets\Scripts\EndScreen.cs" />
-    <Compile Include="Assets\Scripts\MonsterWinScript.cs" />
-    <Compile Include="Assets\Scripts\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\Look.cs" />
-    <Compile Include="Assets\Scripts\backgroundSound.cs" />
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\PlayerWinCon.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\PickupScript.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\EndScreen.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\MonsterWinScript.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\MainMenu.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\Look.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\backgroundSound.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\PlayerController.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\Attack.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\CommandAndOptimization\CommandInvoker.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\CommandAndOptimization\CubePlacer.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\CommandAndOptimization\ICommand.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\CommandAndOptimization\InputPlane.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\CommandAndOptimization\PlaceCubeCommand.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\ObjectSpawner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -77,6 +84,8 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\ScriptsandDLLs\morebox.dll" />
+    <None Include="Assets\ScriptsandDLLs\SpeedUp.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
