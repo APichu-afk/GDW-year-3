@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     //public GameObject playerobject;
     public float speed;//speed of the character movement
     public float camspeed;//speed of the character movement
-    public float gravity = 100.0f;//Gravity intensity
+    public float gravity = 5.0f;//Gravity intensity
     public Vector2 moveinput;//movement inputs
     public Vector2 lookinput;//camera rotation inputs
     private Vector3 movementDirection = Vector3.zero;//The direction the player is moving

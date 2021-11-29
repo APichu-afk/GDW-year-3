@@ -485,7 +485,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 42727398242769987}
-        m_TargetAssemblyTypeName: Attack, Assembly-CSharp
+        m_TargetAssemblyTypeName: ButtonPresses, Assembly-CSharp
         m_MethodName: OnAttack
         m_Mode: 0
         m_Arguments:
@@ -514,22 +514,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 71f3eaea-541b-4d6b-aea8-2243f5e28ee3
     m_ActionName: Character/Button2[/XInputControllerWindows/buttonEast,/Keyboard/c]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 42727398242769987}
-        m_TargetAssemblyTypeName: Attack, Assembly-CSharp
-        m_MethodName: Onstart
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 57f17d21-15ee-421b-ad04-7f102de0c728
-    m_ActionName: Character/Start[/Keyboard/enter,/XInputControllerWindows/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Character
@@ -584,8 +568,8 @@ MonoBehaviour:
   player: {fileID: 5710456759724643485}
   playertransform: {fileID: 5710456759724643487}
   speed: 10
-  camspeed: 20
-  gravity: 15
+  camspeed: 80
+  gravity: 100
   moveinput: {x: 0, y: 0}
   lookinput: {x: 0, y: 0}
 --- !u!114 &42727398242769987
@@ -602,13 +586,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackpointhuman: {fileID: 1547499367486232913}
   attackpointmonster: {fileID: 1547499367486232913}
-  attackrange: 1
+  player: {fileID: 5710456759724643485}
   monsterlayer:
     serializedVersion: 2
     m_Bits: 8
   humanlayer:
     serializedVersion: 2
     m_Bits: 64
+  spacepartlayer:
+    serializedVersion: 2
+    m_Bits: 128
+  shiplayer:
+    serializedVersion: 2
+    m_Bits: 256
   attack:
     m_Name: Attack
     m_Type: 0
@@ -625,16 +615,10 @@ MonoBehaviour:
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
-  start:
-    m_Name: Start
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 5b17b019-2e89-43d6-b617-635338e9a2e3
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-  gamestart: 0
   humanhealth: 100
+  monsterhealth: 2
+  wincounter: 0
+  var: {fileID: 0}
 --- !u!1 &5710456760019468899
 GameObject:
   m_ObjectHideFlags: 0
