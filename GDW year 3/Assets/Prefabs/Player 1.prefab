@@ -570,9 +570,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 5710456759724643485}
   playertransform: {fileID: 5710456759724643487}
-  speed: 10
+  speed: 2.5
   monsterspeed: 0
-  camspeed: 110
+  camspeed: 87
   gravity: 100
   moveinput: {x: 0, y: 0}
   lookinput: {x: 0, y: 0}
