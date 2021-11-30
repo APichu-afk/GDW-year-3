@@ -36,6 +36,8 @@ public class ButtonPresses : MonoBehaviour
     private Vector3 spawner6 = new Vector3(-111, 10, -114);//-111, -114
     private int spawn;
     public ReadyCheck var;
+    public GameObject human;
+    public GameObject monster;
     //The different states a player can be in
     public enum playerstate
     {
@@ -154,10 +156,18 @@ public class ButtonPresses : MonoBehaviour
             case playerstate.Human:
                 gameObject.tag = "Player 1";
                 gameObject.layer = 6;
+                //GameObject.Find("SpaceEngineer").SetActive(true);
+                //GameObject.Find("MonsterRetopology").SetActive(false);
+                human.SetActive(true);
+                monster.SetActive(false);
                 break;
             case playerstate.Monster:
                 gameObject.tag = "Player 2";
                 gameObject.layer = 3;
+                //GameObject.Find("SpaceEngineer").SetActive(false);
+                //GameObject.Find("MonsterRetopology").SetActive(true);
+                monster.SetActive(true);
+                human.SetActive(false);
                 break;
         }
         Debug.Log(humanhealth);
