@@ -70,6 +70,6 @@ public class PlayerController : MonoBehaviour
         }
         movementDirection.y -= gravity;//Adds gravity
 
-        player.Move(movementDirection * Time.fixedDeltaTime);//Moves the player
+        player.Move(movementDirection * Time.deltaTime);//Moves the player
     }
 }
