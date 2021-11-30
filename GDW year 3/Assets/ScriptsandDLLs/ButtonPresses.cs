@@ -16,7 +16,7 @@ public class ButtonPresses : MonoBehaviour
     public Transform attackpointhuman;//the middle of the attack hitbox for humans
     public Transform attackpointmonster;//the middle of the attack hitbox for monsters
     public CharacterController player;
-    private float attackrange = 0.5f;//the radius of the attack
+    private float attackrange = 1.0f;//the radius of the attack
     public LayerMask monsterlayer;//gets the layer that the monster is on
     public LayerMask humanlayer;//gets the layer that the human is on
     public LayerMask spacepartlayer;//gets the layer that the human is on
@@ -99,7 +99,6 @@ public class ButtonPresses : MonoBehaviour
 
         foreach(Collider monster in hitmonsters)
         {
-            Debug.Log("hit");
             monster.GetComponent<ButtonPresses>().monsterhit();
         }
     }
@@ -156,16 +155,12 @@ public class ButtonPresses : MonoBehaviour
             case playerstate.Human:
                 gameObject.tag = "Player 1";
                 gameObject.layer = 6;
-                //GameObject.Find("SpaceEngineer").SetActive(true);
-                //GameObject.Find("MonsterRetopology").SetActive(false);
                 human.SetActive(true);
                 monster.SetActive(false);
                 break;
             case playerstate.Monster:
                 gameObject.tag = "Player 2";
                 gameObject.layer = 3;
-                //GameObject.Find("SpaceEngineer").SetActive(false);
-                //GameObject.Find("MonsterRetopology").SetActive(true);
                 monster.SetActive(true);
                 human.SetActive(false);
                 break;
