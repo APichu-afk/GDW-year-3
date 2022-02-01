@@ -71,6 +71,7 @@
     <Compile Include="Assets\ScriptsandDLLs\Leveleditor scripts\CommandAndOptimization\CommandInvoker.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Materials\Tree M\Leaf\Leaf.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

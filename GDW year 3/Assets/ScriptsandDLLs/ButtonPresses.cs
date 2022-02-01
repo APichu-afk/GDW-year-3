@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonPresses : MonoBehaviour
 {
@@ -24,6 +25,12 @@ public class ButtonPresses : MonoBehaviour
     public InputAction attack;//Attack button press
     public InputAction pickup;//pickup button press
     public float humanhealth = 100.0f;// the humans health
+    public Text UIhealth;
+    public Text UISpacepartsamount;
+    public Text UIHolding;
+    public int spacepartscount = 0;
+    public CanvasGroup humanUI;
+    public CanvasGroup monsterUI;
     public float monsterhealth = 2.0f;
     private playerstate currentstate;//Hides the player's state from the player
     private bool picked = false;
@@ -110,6 +117,7 @@ public class ButtonPresses : MonoBehaviour
         {
             if (!picked)
             {
+                spacepartscount += 1;
                 spacepart.GetComponent<Pickup>().pick();
                 picked = true;
             }
@@ -165,7 +173,23 @@ public class ButtonPresses : MonoBehaviour
                 human.SetActive(false);
                 break;
         }
+        //UI health
         Debug.Log(humanhealth);
+        UIhealth.text = humanhealth.ToString();
+        UISpacepartsamount.text = spacepartscount.ToString();
+        if(picked == true)
+        {
+            UIHolding.text = "Holding";
+        }
+        else
+        {
+            UIHolding.text = "Hands free";
+        }
+        if (gameObject.tag == "Player 2")
+        {
+            humanUI.alpha = 0.0f;
+        }
+
         //Checks if the monsters win or not (Monster win condition moved here)
         if (humanhealth <= 0)
         {
