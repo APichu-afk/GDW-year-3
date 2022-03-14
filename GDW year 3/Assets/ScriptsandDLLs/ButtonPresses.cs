@@ -63,38 +63,44 @@ public class ButtonPresses : MonoBehaviour
     //If the attack button is pressed
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (!var.gamestart)
+        if (context.performed)
         {
-            //If the player presses the attack button before the game has started they will become a human
-            currentstate = playerstate.Human;
-        }
-        else
-        {
-            if (gameObject.tag == "Player 1")
+            if (!var.gamestart)
             {
-                //If the player is a human they will do a human attack
-                humanAttack();
+                //If the player presses the attack button before the game has started they will become a human
+                currentstate = playerstate.Human;
             }
-            if (gameObject.tag == "Player 2")
+            else
             {
-                //If the player is a monster they will do a monster attack
-                monsterAttack();
+                if (gameObject.tag == "Player 1")
+                {
+                    //If the player is a human they will do a human attack
+                    humanAttack();
+                }
+                if (gameObject.tag == "Player 2")
+                {
+                    //If the player is a monster they will do a monster attack
+                    monsterAttack();
+                }
             }
         }
     }
     //If the pick up button is pressed
     public void Onpickup(InputAction.CallbackContext context)
     {
-        if (!var.gamestart)
+        if (context.performed)
         {
-            //If the player has pressed the pick up button before the game has started they will become a monster
-            currentstate = playerstate.Monster;
-        }
-        else
-        {
-            if (gameObject.tag == "Player 1")
+            if (!var.gamestart)
             {
-                humanpickup();
+                //If the player has pressed the pick up button before the game has started they will become a monster
+                currentstate = playerstate.Monster;
+            }
+            else
+            {
+                if (gameObject.tag == "Player 1")
+                {
+                    humanpickup();
+                }
             }
         }
     }
