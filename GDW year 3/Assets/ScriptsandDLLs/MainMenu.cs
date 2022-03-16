@@ -19,4 +19,9 @@ public class MainMenu : MonoBehaviour {
     {
         SceneManager.LoadScene("LevelLeditor");
     }
+
+    public void Online()
+    {
+        SceneManager.LoadScene("ConnectToServer");
+    }
 }

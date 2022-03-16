@@ -56,18 +56,21 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ScriptsandDLLs\ReadyCheck.cs" />
-    <Compile Include="Assets\ScriptsandDLLs\Pickup.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\Connect.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\Gameplay\ReadyCheck.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\Gameplay\Pickup.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\Client.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Leveleditor scripts\CommandAndOptimization\ICommand.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Leveleditor scripts\CommandAndOptimization\InputPlane.cs" />
     <Compile Include="Assets\ScriptsandDLLs\EndScreen.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\StatusChange.cs" />
     <Compile Include="Assets\ScriptsandDLLs\MainMenu.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Leveleditor scripts\CommandAndOptimization\PlaceCubeCommand.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Leveleditor scripts\ObjectSpawner.cs" />
     <Compile Include="Assets\ScriptsandDLLs\backgroundSound.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Leveleditor scripts\CommandAndOptimization\CubePlacer.cs" />
-    <Compile Include="Assets\ScriptsandDLLs\PlayerController.cs" />
-    <Compile Include="Assets\ScriptsandDLLs\ButtonPresses.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\Gameplay\PlayerController.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\Gameplay\ButtonPresses.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Leveleditor scripts\CommandAndOptimization\CommandInvoker.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -87,10 +90,10 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\ScriptsandDLLs\Leveleditor scripts\morebox.dll" />
-    <None Include="Assets\ScriptsandDLLs\SpeedUp.dll" />
+    <None Include="Assets\ScriptsandDLLs\DLLs\SpeedUp.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\ScriptsandDLLs\MonsterSpeed.dll" />
+    <None Include="Assets\ScriptsandDLLs\DLLs\MonsterSpeed.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
