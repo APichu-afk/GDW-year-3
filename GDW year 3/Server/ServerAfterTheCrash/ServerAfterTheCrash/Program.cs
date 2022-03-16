@@ -3,14 +3,12 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.Collections.Generic;
-using System.Timers;
 
 public class UDPServer
 {
     public static List<string> ClientsList = new List<string>();
     public static void StartServer()
     {
-        
         
         byte[] buffer = new byte[512];
 
@@ -41,7 +39,7 @@ public class UDPServer
             {
                 int rec = handler.Receive(buffer);
 
-                //Console.WriteLine(Encoding.ASCII.GetString(buffer, 0, rec));
+                Console.WriteLine(Encoding.ASCII.GetString(buffer, 0, rec));
 
                 if (Encoding.ASCII.GetString(buffer, 0, rec) == "refresh")
                 {
@@ -51,7 +49,12 @@ public class UDPServer
                         handler.Send(users);
                     }
                 }
-
+                if(Encoding.ASCII.GetString(buffer,0,rec).StartsWith("Chatting!"))
+                {
+                    string tmpMessage = Encoding.ASCII.GetString(buffer, 0, rec).Remove(0, 9);
+                    byte[] message = Encoding.ASCII.GetBytes(tmpMessage);
+                    handler.Send(message);
+                }
                 else
                 {
                     ClientsList.Add(Encoding.ASCII.GetString(buffer, 0, rec));

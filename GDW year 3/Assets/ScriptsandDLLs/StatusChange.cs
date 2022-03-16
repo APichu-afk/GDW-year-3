@@ -21,9 +21,4 @@ public class StatusChange : MonoBehaviour
     {
         status.text = "Busy";
     }
-
-    public void Chatting()
-    {
-        status.text = "Chatting";
-    }
 }
