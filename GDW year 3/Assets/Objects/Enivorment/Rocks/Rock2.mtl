@@ -1,0 +1,14 @@
+# Blender MTL File: 'GDW Assignment - Final Game Art.blend'
+# Material Count: 1
+
+newmtl Rock2
+Ns 323.999994
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump E:\\School\\Year 3 Sem 1\\Game Development Workshop\\GDW Assignment - Final Game Art\\Texture\\Rock texture\\Rock020_1K_NormalDX.png
+map_Ns E:\\School\\Year 3 Sem 1\\Game Development Workshop\\GDW Assignment - Final Game Art\\Texture\\Rock texture\\Rock020_1K_Roughness.png
