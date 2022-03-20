@@ -35,16 +35,24 @@ public class ButtonPresses : MonoBehaviour
     private playerstate currentstate;//Hides the player's state from the player
     private bool picked = false;
     public int wincounter = 0;
-    private Vector3 spawner1 = new Vector3(-40, 10, -40);//40, -37
+    private Vector3 spawner1 = new Vector3(-40, 6, -40);//40, -37
     private Vector3 spawner2 = new Vector3(-65, 10, 44);//-65, 44
-    private Vector3 spawner3 = new Vector3(-141, 10, 53);//-141, 53
-    private Vector3 spawner4 = new Vector3(-211, 10, 2);//-211, 2
+    private Vector3 spawner3 = new Vector3(-141, 6, 53);//-141, 53
+    private Vector3 spawner4 = new Vector3(-211, 6, 2);//-211, 2
     private Vector3 spawner5 = new Vector3(-191, 10, -96);//-191, -96
     private Vector3 spawner6 = new Vector3(-111, 10, -114);//-111, -114
     private int spawn;
     public ReadyCheck var;
     public GameObject human;
     public GameObject monster;
+
+    //Animation
+    Animator animatorMonster;
+
+    void Start()
+    {
+        animatorMonster = GetComponent<Animator>();
+    }
     //The different states a player can be in
     public enum playerstate
     {
@@ -81,6 +89,7 @@ public class ButtonPresses : MonoBehaviour
                 {
                     //If the player is a monster they will do a monster attack
                     monsterAttack();
+                    animatorMonster.SetBool("isAttack", true);
                 }
             }
         }
@@ -150,6 +159,7 @@ public class ButtonPresses : MonoBehaviour
         {
             human.GetComponent<ButtonPresses>().humanhit();
         }
+
     }
     void monsterhit()
     {
