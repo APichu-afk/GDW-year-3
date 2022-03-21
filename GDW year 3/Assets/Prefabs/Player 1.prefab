@@ -92,7 +92,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9137664789033044240
 RectTransform:
   m_ObjectHideFlags: 0
@@ -279,7 +279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5242564226525878670
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1221,6 +1221,12 @@ MonoBehaviour:
   var: {fileID: 0}
   human: {fileID: 2246372840241216331}
   monster: {fileID: 5942424448350461223}
+  ThrusterUI: {fileID: 6264365621133619463}
+  Thruster: {fileID: 0}
+  WingUI: {fileID: 2171626715996063235}
+  Wing: {fileID: 0}
+  BlasterUI: {fileID: 3511166636391033424}
+  Blaster: {fileID: 0}
   Camera: {fileID: 5710456758175057833}
   flashLight: {fileID: 5710456758646748363}
 --- !u!95 &8322445919597056460
@@ -1430,7 +1436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &957470133065740759
 RectTransform:
   m_ObjectHideFlags: 0

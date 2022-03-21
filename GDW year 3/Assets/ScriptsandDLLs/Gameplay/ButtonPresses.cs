@@ -45,7 +45,12 @@ public class ButtonPresses : MonoBehaviour
     public ReadyCheck var;
     public GameObject human;
     public GameObject monster;
-    
+    public GameObject ThrusterUI;
+    public GameObject Thruster;
+    public GameObject WingUI;
+    public GameObject Wing;
+    public GameObject BlasterUI;
+    public GameObject Blaster;
     public GameObject Camera;
     public GameObject flashLight;
 
@@ -70,7 +75,9 @@ public class ButtonPresses : MonoBehaviour
         attack.performed += OnAttack;
         pickup.performed += Onpickup;
         var = GameObject.Find("Player Manager").GetComponent<ReadyCheck>();
-
+        Thruster = GameObject.Find("Thruster");
+        Wing = GameObject.Find("Wing");
+        Blaster = GameObject.Find("BlasterTip");
         Camera.GetComponent<DeferredNightVisionEffect>().enabled = false;
     }
     //If the attack button is pressed
@@ -143,6 +150,18 @@ public class ButtonPresses : MonoBehaviour
             {
                 spacepartscount += 1;
                 spacepart.GetComponent<Pickup>().pick();
+                if (spacepart.name == Thruster.name)
+                {
+                    ThrusterUI.SetActive(true);
+                }
+                if (spacepart.name == Wing.name)
+                {
+                    WingUI.SetActive(true);
+                }
+                if (spacepart.name == Blaster.name)
+                {
+                    BlasterUI.SetActive(true);
+                }
                 picked = true;
             }
         }
