@@ -45,6 +45,9 @@ public class ButtonPresses : MonoBehaviour
     public ReadyCheck var;
     public GameObject human;
     public GameObject monster;
+    
+    public GameObject Camera;
+    public GameObject flashLight;
 
     //Animation
     Animator animatorMonster;
@@ -67,6 +70,8 @@ public class ButtonPresses : MonoBehaviour
         attack.performed += OnAttack;
         pickup.performed += Onpickup;
         var = GameObject.Find("Player Manager").GetComponent<ReadyCheck>();
+
+        Camera.GetComponent<DeferredNightVisionEffect>().enabled = false;
     }
     //If the attack button is pressed
     public void OnAttack(InputAction.CallbackContext context)
@@ -77,6 +82,8 @@ public class ButtonPresses : MonoBehaviour
             {
                 //If the player presses the attack button before the game has started they will become a human
                 currentstate = playerstate.Human;
+
+                
             }
             else
             {
@@ -103,6 +110,8 @@ public class ButtonPresses : MonoBehaviour
             {
                 //If the player has pressed the pick up button before the game has started they will become a monster
                 currentstate = playerstate.Monster;
+
+                
             }
             else
             {
@@ -179,14 +188,21 @@ public class ButtonPresses : MonoBehaviour
             case playerstate.Human:
                 gameObject.tag = "Player 1";
                 gameObject.layer = 6;
+                Camera.GetComponent<DeferredNightVisionEffect>().enabled = false;
+                flashLight.SetActive(true);
                 human.SetActive(true);
                 monster.SetActive(false);
+                
+                //nightVis.GetComponent<DeferredNightVisionEffect>().OnDisable();
                 break;
             case playerstate.Monster:
                 gameObject.tag = "Player 2";
                 gameObject.layer = 3;
+                Camera.GetComponent<DeferredNightVisionEffect>().enabled = true;
+                flashLight.SetActive(false);
                 monster.SetActive(true);
                 human.SetActive(false);
+               
                 break;
         }
         //UI health
@@ -200,6 +216,10 @@ public class ButtonPresses : MonoBehaviour
         else
         {
             UIHolding.text = "Hands free";
+        }
+        if (gameObject.tag == "Player 1")
+        {
+            humanUI.alpha = 1.0f;
         }
         if (gameObject.tag == "Player 2")
         {
