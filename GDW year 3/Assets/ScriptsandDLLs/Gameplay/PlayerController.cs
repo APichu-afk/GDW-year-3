@@ -22,10 +22,16 @@ public class PlayerController : MonoBehaviour
     public Vector2 lookinput;//camera rotation inputs
     private Vector3 movementDirection = Vector3.zero;//The direction the player is moving
     private Vector2 rotate = Vector2.zero;//A rotation vector
-    public Animator move;
+    //public Animator move;
+    Animator animatorMonster;
 
     [DllImport("MonsterSpeed")]
     private static extern int MonsterSpeed();
+
+    void Start()
+    {
+        animatorMonster = GetComponent<Animator>();
+    }
 
     void Awake()
     {
@@ -37,14 +43,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(moveinput.x != 0 || moveinput.y != 0)
-        {
-            move.SetBool("Walking", true);
-        }
-        else
-        {
-            move.SetBool("Walking", false);
-        }
+        //if(moveinput.x != 0 || moveinput.y != 0)
+        //{
+        //    animatorMonster.SetBool("isWalking", true);
+        //}
+        //else
+        //{
+        //    animatorMonster.SetBool("isWalking", false);
+        //}
+
+
         Debug.Log(MonsterSpeed());
         //camera look
         float xaxis = lookinput.x * Time.fixedDeltaTime * camspeed;//The input for the xaxis for camera movement
@@ -59,6 +67,18 @@ public class PlayerController : MonoBehaviour
         //player movement
         movementDirection = new Vector3(moveinput.x, 0, moveinput.y);//Gets the input values
         movementDirection = transform.TransformDirection(movementDirection);
+
+        if (moveinput.x != (0) && moveinput.y != (0))
+        {
+            animatorMonster.SetBool("isWalking", true);
+        }
+        else
+        {
+            animatorMonster.SetBool("isWalking", false);
+        }
+
+
+
 
         if (gameObject.tag == "Player 2")
         {

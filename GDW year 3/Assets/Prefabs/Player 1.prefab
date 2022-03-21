@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 5710456759724643485}
   - component: {fileID: 1368962107096887151}
   - component: {fileID: 42727398242769987}
-  - component: {fileID: 8413704481185762481}
+  - component: {fileID: 8322445919597056460}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -769,7 +769,6 @@ MonoBehaviour:
   gravity: 100
   moveinput: {x: 0, y: 0}
   lookinput: {x: 0, y: 0}
-  move: {fileID: 8413704481185762481}
 --- !u!114 &42727398242769987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,7 +824,7 @@ MonoBehaviour:
   var: {fileID: 0}
   human: {fileID: 2246372840241216331}
   monster: {fileID: 5942424448350461223}
---- !u!95 &8413704481185762481
+--- !u!95 &8322445919597056460
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -1422,6 +1421,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 6bc2b238020665942a81cfa045de7a45, type: 2}
+    - target: {fileID: 3700055595751715557, guid: 67c155b5e34c0ad4091f7949e3e46497, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5016772186420613254, guid: 67c155b5e34c0ad4091f7949e3e46497, type: 3}
       propertyPath: m_RootOrder
       value: 7
