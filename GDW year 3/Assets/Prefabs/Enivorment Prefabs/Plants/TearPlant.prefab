@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1930594395370885580}
+  - component: {fileID: 3480621783779083917}
   m_Layer: 0
   m_Name: TearPlant
   m_TagString: Untagged
@@ -35,6 +36,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3480621783779083917
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261300310723349366}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.24193561, y: 1.2563635, z: 0.42016083}
+  m_Center: {x: 0.011999607, y: 0.6143473, z: -0.09098002}
 --- !u!1 &1655100577361015906
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +257,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3066038, g: 0.8087503, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 14
   m_SpotAngle: 30
@@ -354,7 +368,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: baab6b8e7d617e641a9b95cc8484812e, type: 2}
+  - {fileID: 2100000, guid: 4ea0eef11d349184b8c26a5f5510fdf1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -418,7 +432,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.30980393, g: 0.8117647, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 14
   m_SpotAngle: 30
