@@ -53,6 +53,9 @@ public class ButtonPresses : MonoBehaviour
     public GameObject Blaster;
     public GameObject Camera;
     public GameObject flashLight;
+    public Slider slider;
+    public Gradient gradient;
+    public Image fill;
 
     //Animation
     Animator animatorMonster;
@@ -60,6 +63,8 @@ public class ButtonPresses : MonoBehaviour
     void Start()
     {
         animatorMonster = GetComponent<Animator>();
+        SetMaxHealth(humanhealth);
+        fill.color = gradient.Evaluate(1f);
     }
     //The different states a player can be in
     public enum playerstate
@@ -68,7 +73,7 @@ public class ButtonPresses : MonoBehaviour
         Monster,
         Monsteronehit,
     }
-    
+
     //checks if the buttons are pressed
     public void Awake()
     {
@@ -90,7 +95,7 @@ public class ButtonPresses : MonoBehaviour
                 //If the player presses the attack button before the game has started they will become a human
                 currentstate = playerstate.Human;
 
-                
+
             }
             else
             {
@@ -118,7 +123,7 @@ public class ButtonPresses : MonoBehaviour
                 //If the player has pressed the pick up button before the game has started they will become a monster
                 currentstate = playerstate.Monster;
 
-                
+
             }
             else
             {
@@ -135,7 +140,7 @@ public class ButtonPresses : MonoBehaviour
         //Creates the hit box and checks what is being hit for the attack
         Collider[] hitmonsters = Physics.OverlapSphere(attackpointhuman.position, attackrange, monsterlayer);
 
-        foreach(Collider monster in hitmonsters)
+        foreach (Collider monster in hitmonsters)
         {
             monster.GetComponent<ButtonPresses>().monsterhit();
         }
@@ -144,7 +149,7 @@ public class ButtonPresses : MonoBehaviour
     {
         Collider[] hitspaceparts = Physics.OverlapSphere(attackpointhuman.position, attackrange, spacepartlayer);
 
-        foreach(Collider spacepart in hitspaceparts)
+        foreach (Collider spacepart in hitspaceparts)
         {
             if (!picked)
             {
@@ -165,9 +170,10 @@ public class ButtonPresses : MonoBehaviour
                 picked = true;
             }
         }
+
         Collider[] ship = Physics.OverlapSphere(attackpointhuman.position, attackrange, shiplayer);
 
-        foreach(Collider shipcollider in ship)
+        foreach (Collider shipcollider in ship)
         {
             if (picked)
             {
@@ -197,6 +203,8 @@ public class ButtonPresses : MonoBehaviour
     void humanhit()
     {
         humanhealth -= 1.0f;
+        SetHealth(humanhealth); //UI
+        fill.color = gradient.Evaluate(slider.normalizedValue); //UI
     }
 
     void Update()
@@ -211,7 +219,7 @@ public class ButtonPresses : MonoBehaviour
                 flashLight.SetActive(true);
                 human.SetActive(true);
                 monster.SetActive(false);
-                
+
                 //nightVis.GetComponent<DeferredNightVisionEffect>().OnDisable();
                 break;
             case playerstate.Monster:
@@ -221,14 +229,15 @@ public class ButtonPresses : MonoBehaviour
                 flashLight.SetActive(false);
                 monster.SetActive(true);
                 human.SetActive(false);
-               
+
                 break;
         }
         //UI health
         Debug.Log(humanhealth);
         UIhealth.text = humanhealth.ToString();
+
         UISpacepartsamount.text = spacepartscount.ToString();
-        if(picked == true)
+        if (picked == true)
         {
             UIHolding.text = "Holding";
         }
@@ -275,7 +284,7 @@ public class ButtonPresses : MonoBehaviour
                     player.transform.position = spawner6;
                     break;
             }
-            
+
             monsterhealth = 2;
         }
         if (Input.GetKeyDown(KeyCode.Return))
@@ -306,15 +315,30 @@ public class ButtonPresses : MonoBehaviour
             }
         }
 
-        if (wincounter == 3)
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            humanhit();
+        }
+            if (wincounter == 3)
         {
             SceneManager.LoadScene("EndScreen");
-        } 
+        }
     }
 
     //draws the hitbox for testing purposes
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(attackpointhuman.position, attackrange);
+    }
+
+    public void SetHealth(float health)
+    {
+        slider.value = health;
+    }
+
+    public void SetMaxHealth(float health)
+    {
+        slider.maxValue = health;
+        slider.value = health;
     }
 }
