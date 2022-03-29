@@ -206,7 +206,9 @@ public class ButtonPresses : MonoBehaviour
         Collider[] mushrooms = Physics.OverlapSphere(attackpointmonster.position, attackrange, speedboost);
         foreach (Collider mush in mushrooms)
         {
-            mush.GetComponent<ButtonPresses>().movespeedboost();
+            //Debug.Log("Mush");
+            gameObject.GetComponent<PlayerController>().SpeedPowerUp();
+            mush.GetComponent<MonsterPickUp>().pick();
         }
     }
     void monsterhit()
@@ -219,11 +221,6 @@ public class ButtonPresses : MonoBehaviour
         humanhealth -= 1.0f;
         SetHealth(humanhealth); //UI
         fill.color = gradient.Evaluate(slider.normalizedValue); //UI
-    }
-
-    void movespeedboost()
-    {
-        monster.GetComponent<PlayerController>().monsterspeed += 50;
     }
 
     void Update()

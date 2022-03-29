@@ -1357,6 +1357,9 @@ MonoBehaviour:
   shiplayer:
     serializedVersion: 2
     m_Bits: 256
+  speedboost:
+    serializedVersion: 2
+    m_Bits: 512
   attack:
     m_Name: Attack
     m_Type: 0

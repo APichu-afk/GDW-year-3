@@ -18,10 +18,12 @@ public class PlayerController : MonoBehaviour
     public float monsterspeed;
     public float camspeed;//speed of the character movement
     public float gravity = 5.0f;//Gravity intensity
+    public float timeleftboost = 10.0f;
     public Vector2 moveinput;//movement inputs
     public Vector2 lookinput;//camera rotation inputs
     private Vector3 movementDirection = Vector3.zero;//The direction the player is moving
     private Vector2 rotate = Vector2.zero;//A rotation vector
+    private bool boost = false;
     //public Animator move;
     Animator animatorMonster;
 
@@ -36,6 +38,15 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         monsterspeed = speed + MonsterSpeed();
+    }
+
+    public void SpeedPowerUp()
+    {
+        if (boost == false)
+        {
+            monsterspeed = monsterspeed + MonsterSpeed();
+            boost = true;
+        }
     }
     public void Onmove(InputAction.CallbackContext context) => moveinput = context.ReadValue<Vector2>();//Similar to the button press this checks if WASD or the left analog stick is bing used
     public void Onlook(InputAction.CallbackContext context) => lookinput = context.ReadValue<Vector2>();//Similar to the button press this checks if IJKL or the right analog stick is being used
@@ -53,7 +64,7 @@ public class PlayerController : MonoBehaviour
         //}
 
 
-        Debug.Log(MonsterSpeed());
+        //Debug.Log(MonsterSpeed());
         //camera look
         float xaxis = lookinput.x * Time.fixedDeltaTime * camspeed;//The input for the xaxis for camera movement
         float yaxis = lookinput.y * Time.fixedDeltaTime * camspeed;//The input for the yaxis for camera movement
@@ -68,6 +79,18 @@ public class PlayerController : MonoBehaviour
         movementDirection = new Vector3(moveinput.x, 0, moveinput.y);//Gets the input values
         movementDirection = transform.TransformDirection(movementDirection);
 
+        if (boost == true)
+        {
+            timeleftboost -= Time.deltaTime;
+            //Debug.Log(timeleftboost);
+        }
+        if(timeleftboost < 0)
+        {
+            boost = false;
+            monsterspeed = monsterspeed - MonsterSpeed();
+            timeleftboost = 10.0f;
+        }
+
         if (moveinput.x != (0) && moveinput.y != (0))
         {
             animatorMonster.SetBool("isWalking", true);
@@ -76,9 +99,6 @@ public class PlayerController : MonoBehaviour
         {
             animatorMonster.SetBool("isWalking", false);
         }
-
-
-
 
         if (gameObject.tag == "Player 2")
         {
