@@ -22,6 +22,7 @@ public class ButtonPresses : MonoBehaviour
     public LayerMask humanlayer;//gets the layer that the human is on
     public LayerMask spacepartlayer;//gets the layer that the human is on
     public LayerMask shiplayer;
+    public LayerMask speedboost;
     public InputAction attack;//Attack button press
     public InputAction pickup;//pickup button press
     public float humanhealth = 100.0f;// the humans health
@@ -131,6 +132,10 @@ public class ButtonPresses : MonoBehaviour
                 {
                     humanpickup();
                 }
+                if (gameObject.tag == "Player 2")
+                {
+                    monsterpickup();
+                }
             }
         }
     }
@@ -195,6 +200,15 @@ public class ButtonPresses : MonoBehaviour
         }
 
     }
+
+    void monsterpickup()
+    {
+        Collider[] mushrooms = Physics.OverlapSphere(attackpointmonster.position, attackrange, speedboost);
+        foreach (Collider mush in mushrooms)
+        {
+            mush.GetComponent<ButtonPresses>().movespeedboost();
+        }
+    }
     void monsterhit()
     {
         monsterhealth -= 1;
@@ -205,6 +219,11 @@ public class ButtonPresses : MonoBehaviour
         humanhealth -= 1.0f;
         SetHealth(humanhealth); //UI
         fill.color = gradient.Evaluate(slider.normalizedValue); //UI
+    }
+
+    void movespeedboost()
+    {
+        monster.GetComponent<PlayerController>().monsterspeed += 50;
     }
 
     void Update()
