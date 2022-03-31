@@ -57,6 +57,14 @@ public class ButtonPresses : MonoBehaviour
     public Slider slider;
     public Gradient gradient;
     public Image fill;
+    private int humanpainsound;
+    private int monsterpainsound;
+    public AudioSource HumanPain;
+    public AudioSource HumanPain2;
+    public AudioSource HumanPain3;
+    public AudioSource AlienPain;
+    public AudioSource AlienPain2;
+    public AudioSource Shipfix;
 
     //Animation
     Animator animatorMonster;
@@ -182,6 +190,10 @@ public class ButtonPresses : MonoBehaviour
         {
             if (picked)
             {
+                if (!Shipfix.isPlaying)
+                {
+                    Shipfix.Play();
+                }
                 wincounter += 1;
                 picked = false;
             }
@@ -213,14 +225,53 @@ public class ButtonPresses : MonoBehaviour
     }
     void monsterhit()
     {
+        monsterpainsound = Random.Range(1, 3);
+        switch (monsterpainsound)
+        {
+            case 1:
+                if (!AlienPain.isPlaying)
+                {
+                    AlienPain.Play();
+                }
+                break;
+            case 2:
+                if (!AlienPain2.isPlaying)
+                {
+                    AlienPain2.Play();
+                }
+                break;
+        }
         monsterhealth -= 1;
+
     }
 
     void humanhit()
     {
-        humanhealth -= 1.0f;
+        humanhealth -= 2.0f;
         SetHealth(humanhealth); //UI
         fill.color = gradient.Evaluate(slider.normalizedValue); //UI
+        humanpainsound = Random.Range(1, 4);
+        switch (humanpainsound)
+        {
+            case 1:
+                if (!HumanPain.isPlaying)
+                {
+                    HumanPain.Play();
+                }
+                break;
+            case 2:
+                if (!HumanPain2.isPlaying)
+                {
+                    HumanPain2.Play();
+                }
+                break;
+            case 3:
+                if (!HumanPain3.isPlaying)
+                {
+                    HumanPain3.Play();
+                }
+                break;
+        }
     }
 
     void Update()
@@ -276,7 +327,7 @@ public class ButtonPresses : MonoBehaviour
             Debug.Log("Monsters win");
             SceneManager.LoadScene("EndScreen");//When the monsters win go to the end screen
         }
-        spawn = Random.Range(1, 6);
+        spawn = Random.Range(1, 7);
         if (monsterhealth <= 0)
         {
             switch (spawn)

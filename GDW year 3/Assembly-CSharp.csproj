@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,8 +53,12 @@
     <UnityVersion>2021.1.20f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Connect.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\Gameplay\MonsterPickUp.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Gameplay\ReadyCheck.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Gameplay\Pickup.cs" />
     <Compile Include="Assets\DeferredNV\DeferredNightVisionEffect.cs" />
@@ -72,7 +76,6 @@
     <Compile Include="Assets\ScriptsandDLLs\Gameplay\PlayerController.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Gameplay\ButtonPresses.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Leveleditor scripts\CommandAndOptimization\CommandInvoker.cs" />
-    <Compile Include="Assets\ScriptsandDLLs\Gameplay\MonsterPickUp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Materials\Tree M\Leaf\Leaf.shader" />

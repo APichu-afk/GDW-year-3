@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 movementDirection = Vector3.zero;//The direction the player is moving
     private Vector2 rotate = Vector2.zero;//A rotation vector
     private bool boost = false;
+    public AudioSource HumanWalk;
+    public AudioSource AlienWalk;
     //public Animator move;
     Animator animatorMonster;
 
@@ -91,13 +93,29 @@ public class PlayerController : MonoBehaviour
             timeleftboost = 10.0f;
         }
 
-        if (moveinput.x != (0) && moveinput.y != (0))
+        if (moveinput.x != 0 || moveinput.y != 0)
         {
-            animatorMonster.SetBool("isWalking", true);
+            //animatorMonster.SetBool("isWalking", true);
+            if (gameObject.tag == "Player 2")
+            {
+                if (!AlienWalk.isPlaying)
+                {
+                    AlienWalk.Play();
+                }
+            }
+            else
+            {
+                if (!HumanWalk.isPlaying)
+                {
+                    HumanWalk.Play();
+                }
+            }
         }
         else
         {
-            animatorMonster.SetBool("isWalking", false);
+            //animatorMonster.SetBool("isWalking", false);
+            AlienWalk.Stop();
+            HumanWalk.Stop();
         }
 
         if (gameObject.tag == "Player 2")
