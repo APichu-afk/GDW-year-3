@@ -2041,6 +2041,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 71f3eaea-541b-4d6b-aea8-2243f5e28ee3
     m_ActionName: Character/Button2[/XInputControllerWindows/buttonEast,/Keyboard/c]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 74fa9505-1683-4c86-a9c3-a5bea17d094b
+    m_ActionName: Character/Start[/XInputControllerWindows/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Character
@@ -2141,6 +2145,7 @@ MonoBehaviour:
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
+    m_Flags: 0
   pickup:
     m_Name: Pickup
     m_Type: 0
@@ -2149,6 +2154,7 @@ MonoBehaviour:
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
+    m_Flags: 0
   humanhealth: 100
   UIhealth: {fileID: 5152464988280546351}
   UISpacepartsamount: {fileID: 4079472662019383807}
@@ -2206,6 +2212,7 @@ MonoBehaviour:
   AlienPain: {fileID: 5498209390974221605}
   AlienPain2: {fileID: 270388540034451441}
   Shipfix: {fileID: 6524009432337561608}
+  playercamera: {fileID: 5710456758175057835}
 --- !u!95 &8322445919597056460
 Animator:
   serializedVersion: 3
