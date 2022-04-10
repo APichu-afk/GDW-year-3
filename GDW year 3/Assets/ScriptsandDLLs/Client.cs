@@ -19,7 +19,6 @@ public class Client : MonoBehaviour
     public Text Users;
     public Text MessageReciving;
     public InputField MessageSending;
-    private string tempstatus;
 
     public static void RunClient()
     {
@@ -28,20 +27,18 @@ public class Client : MonoBehaviour
 
         client_socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         client_socket.Connect(remoteEP);
+        client_socket.Blocking = false;
     }
 
     public void chat()
     {
-        byte[] message = Encoding.ASCII.GetBytes("Chatting!" + MessageSending.text);
+        byte[] message = Encoding.ASCII.GetBytes(Name.text + ":s: " + MessageSending.text);
         client_socket.Send(message);
-        byte[] buffer = new byte[512];
-        int recv = client_socket.Receive(buffer);
-        MessageReciving.text += Encoding.ASCII.GetString(buffer, 0, recv) + "\n";
     }
 
     public void close()
     {
-        byte[] disconnent = Encoding.ASCII.GetBytes(Name.text + " " + status.text + "D");
+        byte[] disconnent = Encoding.ASCII.GetBytes(Name.text + " D");
         client_socket.Send(disconnent);
         client_socket.Shutdown(SocketShutdown.Both);
         SceneManager.LoadScene("MainMenu");
@@ -56,22 +53,10 @@ public class Client : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (status.text != tempstatus)
-        {
-            byte[] msg = Encoding.ASCII.GetBytes(Name.text + " " + status.text);
-            client_socket.Send(msg);
-            tempstatus = status.text;
-        }
-        
-        
-    }
 
-    public void refresh()
-    {
-        byte[] refresh = Encoding.ASCII.GetBytes("refresh");
-        client_socket.Send(refresh);
         byte[] buffer = new byte[512];
-        int rec = client_socket.Receive(buffer);
-        Users.text = Encoding.ASCII.GetString(buffer, 0, rec);
+        int recv = client_socket.Receive(buffer);
+        MessageReciving.text += Encoding.ASCII.GetString(buffer, 0, recv) + "\n";
+
     }
 }

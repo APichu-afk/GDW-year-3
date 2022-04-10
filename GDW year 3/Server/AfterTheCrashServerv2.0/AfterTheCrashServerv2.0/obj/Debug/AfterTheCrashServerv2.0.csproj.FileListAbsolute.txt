@@ -1,0 +1,7 @@
+C:\Users\Alexander\OneDrive\Desktop\Game Dev\Year 3\GDW3\GDW-year-3\GDW year 3\Server\AfterTheCrashServerv2.0\AfterTheCrashServerv2.0\bin\Debug\AfterTheCrashServerv2.0.exe.config
+C:\Users\Alexander\OneDrive\Desktop\Game Dev\Year 3\GDW3\GDW-year-3\GDW year 3\Server\AfterTheCrashServerv2.0\AfterTheCrashServerv2.0\bin\Debug\AfterTheCrashServerv2.0.exe
+C:\Users\Alexander\OneDrive\Desktop\Game Dev\Year 3\GDW3\GDW-year-3\GDW year 3\Server\AfterTheCrashServerv2.0\AfterTheCrashServerv2.0\bin\Debug\AfterTheCrashServerv2.0.pdb
+C:\Users\Alexander\OneDrive\Desktop\Game Dev\Year 3\GDW3\GDW-year-3\GDW year 3\Server\AfterTheCrashServerv2.0\AfterTheCrashServerv2.0\obj\Debug\AfterTheCrashServerv2.0.csproj.AssemblyReference.cache
+C:\Users\Alexander\OneDrive\Desktop\Game Dev\Year 3\GDW3\GDW-year-3\GDW year 3\Server\AfterTheCrashServerv2.0\AfterTheCrashServerv2.0\obj\Debug\AfterTheCrashServerv2.0.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\OneDrive\Desktop\Game Dev\Year 3\GDW3\GDW-year-3\GDW year 3\Server\AfterTheCrashServerv2.0\AfterTheCrashServerv2.0\obj\Debug\AfterTheCrashServerv2.0.exe
+C:\Users\Alexander\OneDrive\Desktop\Game Dev\Year 3\GDW3\GDW-year-3\GDW year 3\Server\AfterTheCrashServerv2.0\AfterTheCrashServerv2.0\obj\Debug\AfterTheCrashServerv2.0.pdb
