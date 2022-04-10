@@ -15,9 +15,11 @@ public class Server
     private static List<Socket> clientSockets = new List<Socket>();
     private static List<String> names = new List<String>();
     private static byte[] outBuffer = new byte[512];
+    private static byte[] readyBuffer = new byte[512];
     private static string outMsg = "";
     private static string msg = "";
     private static string name = "";
+    private static int amtready = 0;
 
     static void Main(string[] args)
     {
@@ -74,7 +76,7 @@ public class Server
             names.Add(name);
         }
 
-        if (msg.Contains(":s:"))
+        if (msg.Contains(":m:"))
         {
             //Send chatting messages
             outMsg = msg;//Eg Bob: Hello
@@ -88,6 +90,16 @@ public class Server
                 clients.BeginSend(outBuffer, 0, outBuffer.Length, 0, new AsyncCallback(SendCallback), clients);
             }
             outMsg = "";
+        }
+        if (msg.Contains(":r:"))
+        {
+            amtready += 1;
+            foreach (var clients in clientSockets)
+            {
+                readyBuffer = Encoding.ASCII.GetBytes("amount of people ready: " + amtready.ToString());
+                //Console.WriteLine("Sending data to: " + clients.RemoteEndPoint.ToString());
+                clients.BeginSend(readyBuffer, 0, readyBuffer.Length, 0, new AsyncCallback(SendCallback), clients);
+            }
         }
 
         socket.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(ReceiveCallback), socket);

@@ -18,7 +18,9 @@ public class Client : MonoBehaviour
     public Text Name;
     public Text Users;
     public Text MessageReciving;
+    public Text peopleready;
     public InputField MessageSending;
+    public GameObject readybutton;
 
     public static void RunClient()
     {
@@ -32,8 +34,15 @@ public class Client : MonoBehaviour
 
     public void chat()
     {
-        byte[] message = Encoding.ASCII.GetBytes(Name.text + ":s: " + MessageSending.text);
+        byte[] message = Encoding.ASCII.GetBytes(Name.text + ":m: " + MessageSending.text);
         client_socket.Send(message);
+    }
+
+    public void ready()
+    {
+        byte[] ready = Encoding.ASCII.GetBytes(":r:");
+        client_socket.Send(ready);
+        readybutton.SetActive(false);
     }
 
     public void close()
@@ -56,7 +65,18 @@ public class Client : MonoBehaviour
 
         byte[] buffer = new byte[512];
         int recv = client_socket.Receive(buffer);
-        MessageReciving.text += Encoding.ASCII.GetString(buffer, 0, recv) + "\n";
+        if (Encoding.ASCII.GetString(buffer, 0, recv).Contains(":m:"))
+        {
+            MessageReciving.text += Encoding.ASCII.GetString(buffer, 0, recv) + "\n";
+        }
+        if (Encoding.ASCII.GetString(buffer, 0, recv).Contains("amount of people ready:"))
+        {
+            peopleready.text = Encoding.ASCII.GetString(buffer, 0, recv);
+        }
+        if (peopleready.text == "amount of people ready: 4")
+        {
+            SceneManager.LoadScene("OnlineGame");
+        }
 
     }
 }
