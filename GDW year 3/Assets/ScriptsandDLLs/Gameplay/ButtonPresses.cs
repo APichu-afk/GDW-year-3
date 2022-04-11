@@ -66,6 +66,7 @@ public class ButtonPresses : MonoBehaviour
     public AudioSource AlienPain2;
     public AudioSource Shipfix;
     public Camera playercamera;
+    public static bool humanWin;
 
     //Animation
     Animator animatorMonster;
@@ -325,6 +326,7 @@ public class ButtonPresses : MonoBehaviour
         //Checks if the monsters win or not (Monster win condition moved here)
         if (humanhealth <= 0)
         {
+            humanWin = false;
             Debug.Log("Monsters win");
             SceneManager.LoadScene("EndScreen");//When the monsters win go to the end screen
         }
@@ -389,6 +391,7 @@ public class ButtonPresses : MonoBehaviour
         }
             if (wincounter == 3)
         {
+            humanWin = true;
             SceneManager.LoadScene("EndScreen");
         }
     }

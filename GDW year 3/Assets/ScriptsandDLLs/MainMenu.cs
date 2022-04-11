@@ -15,6 +15,12 @@ public class MainMenu : MonoBehaviour {
         Application.Quit();//Quits the application
     }
 
+    public void InstructGame()
+    {
+        Debug.Log("In Instructions!");
+
+    }
+
     public void Editor()
     {
         SceneManager.LoadScene("LevelLeditor");
