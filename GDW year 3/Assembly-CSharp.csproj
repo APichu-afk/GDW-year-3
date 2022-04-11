@@ -57,18 +57,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
-    <Compile Include="Assets\ScriptsandDLLs\Connect.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\Networking\Connect.cs" />
     <Compile Include="Assets\Cinematic\Skip.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Gameplay\MonsterPickUp.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Gameplay\ReadyCheck.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Gameplay\Pickup.cs" />
     <Compile Include="Assets\DeferredNV\DeferredNightVisionEffect.cs" />
-    <Compile Include="Assets\ScriptsandDLLs\Client.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\Networking\Client.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Leveleditor scripts\CommandAndOptimization\ICommand.cs" />
-    <Compile Include="Assets\ScriptsandDLLs\Chatting.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\Networking\MonsterMove.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Leveleditor scripts\CommandAndOptimization\InputPlane.cs" />
     <Compile Include="Assets\ScriptsandDLLs\EndScreen.cs" />
-    <Compile Include="Assets\ScriptsandDLLs\StatusChange.cs" />
+    <Compile Include="Assets\ScriptsandDLLs\Networking\StatusChange.cs" />
     <Compile Include="Assets\ScriptsandDLLs\MainMenu.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Leveleditor scripts\CommandAndOptimization\PlaceCubeCommand.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Leveleditor scripts\ObjectSpawner.cs" />
