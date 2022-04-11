@@ -14,13 +14,16 @@ public class Server
 
     private static List<Socket> clientSockets = new List<Socket>();
     private static List<String> names = new List<String>();
+    private static List<String> scores = new List<String>();
     private static byte[] outBuffer = new byte[512];
     private static byte[] readyBuffer = new byte[512];
     private static byte[] onlineBuffer = new byte[512];
+    private static byte[] scoreBuffer = new byte[512];
     private static string outMsg = "";
     private static string msg = "";
     private static string name = "";
     private static string nameslist = "";
+    private static string scoreslist = "";
     private static int amtready = 0;
     public static Socket UDPserver;
     public static EndPoint remoteclient;
@@ -130,6 +133,26 @@ public class Server
                 clients.BeginSend(onlineBuffer, 0, onlineBuffer.Length, 0, new AsyncCallback(SendCallback), clients);
             }
             nameslist = "";
+        }
+
+        if (msg.Contains(":s:"))
+        {
+            scores.Add(msg);
+
+            foreach( var numbers in scores)
+            {
+                scoreslist += numbers;
+            }
+
+
+            //Sends the msg to each client connected
+            foreach (var clients in clientSockets)
+            {
+                scoreBuffer = Encoding.ASCII.GetBytes(":s:" + scoreslist);
+                Console.WriteLine("Sending data to: " + clients.RemoteEndPoint.ToString());
+                clients.BeginSend(scoreBuffer, 0, scoreBuffer.Length, 0, new AsyncCallback(SendCallback), clients);
+            }
+            scoreslist = "";
         }
 
         socket.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(ReceiveCallback), socket);
