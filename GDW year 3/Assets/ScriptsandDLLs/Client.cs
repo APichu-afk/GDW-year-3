@@ -18,8 +18,9 @@ public class Client : MonoBehaviour
     public Text Name;
     public Text Users;
     public Text MessageReciving;
+    public Text peopleready;
     public InputField MessageSending;
-    private string tempstatus;
+    public GameObject readybutton;
 
     public static void RunClient()
     {
@@ -28,20 +29,25 @@ public class Client : MonoBehaviour
 
         client_socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         client_socket.Connect(remoteEP);
+        client_socket.Blocking = false;
     }
 
     public void chat()
     {
-        byte[] message = Encoding.ASCII.GetBytes("Chatting!" + MessageSending.text);
+        byte[] message = Encoding.ASCII.GetBytes(Name.text + ":m: " + MessageSending.text);
         client_socket.Send(message);
-        byte[] buffer = new byte[512];
-        int recv = client_socket.Receive(buffer);
-        MessageReciving.text += Encoding.ASCII.GetString(buffer, 0, recv) + "\n";
+    }
+
+    public void ready()
+    {
+        byte[] ready = Encoding.ASCII.GetBytes(":r:");
+        client_socket.Send(ready);
+        readybutton.SetActive(false);
     }
 
     public void close()
     {
-        byte[] disconnent = Encoding.ASCII.GetBytes(Name.text + " " + status.text + "D");
+        byte[] disconnent = Encoding.ASCII.GetBytes(Name.text + " D");
         client_socket.Send(disconnent);
         client_socket.Shutdown(SocketShutdown.Both);
         SceneManager.LoadScene("MainMenu");
@@ -56,22 +62,21 @@ public class Client : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (status.text != tempstatus)
-        {
-            byte[] msg = Encoding.ASCII.GetBytes(Name.text + " " + status.text);
-            client_socket.Send(msg);
-            tempstatus = status.text;
-        }
-        
-        
-    }
 
-    public void refresh()
-    {
-        byte[] refresh = Encoding.ASCII.GetBytes("refresh");
-        client_socket.Send(refresh);
         byte[] buffer = new byte[512];
-        int rec = client_socket.Receive(buffer);
-        Users.text = Encoding.ASCII.GetString(buffer, 0, rec);
+        int recv = client_socket.Receive(buffer);
+        if (Encoding.ASCII.GetString(buffer, 0, recv).Contains(":m:"))
+        {
+            MessageReciving.text += Encoding.ASCII.GetString(buffer, 0, recv) + "\n";
+        }
+        if (Encoding.ASCII.GetString(buffer, 0, recv).Contains("amount of people ready:"))
+        {
+            peopleready.text = Encoding.ASCII.GetString(buffer, 0, recv);
+        }
+        if (peopleready.text == "amount of people ready: 4")
+        {
+            SceneManager.LoadScene("OnlineGame");
+        }
+
     }
 }

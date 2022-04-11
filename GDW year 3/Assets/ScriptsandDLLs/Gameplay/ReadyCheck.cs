@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ReadyCheck : MonoBehaviour
 {
@@ -16,6 +17,13 @@ public class ReadyCheck : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
+        {
+            gamestart = true;
+        }
+    }
+    public void OnStart(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
             gamestart = true;
         }

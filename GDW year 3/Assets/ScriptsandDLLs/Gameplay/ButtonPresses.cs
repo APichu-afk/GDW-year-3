@@ -65,6 +65,7 @@ public class ButtonPresses : MonoBehaviour
     public AudioSource AlienPain;
     public AudioSource AlienPain2;
     public AudioSource Shipfix;
+    public Camera playercamera;
 
     //Animation
     Animator animatorMonster;
@@ -247,7 +248,7 @@ public class ButtonPresses : MonoBehaviour
 
     void humanhit()
     {
-        humanhealth -= 2.0f;
+        humanhealth -= 1.5f;
         SetHealth(humanhealth); //UI
         fill.color = gradient.Evaluate(slider.normalizedValue); //UI
         humanpainsound = Random.Range(1, 4);
@@ -286,7 +287,7 @@ public class ButtonPresses : MonoBehaviour
                 flashLight.SetActive(true);
                 human.SetActive(true);
                 monster.SetActive(false);
-
+                playercamera.transform.localPosition = new Vector3(0, 0.8f, 0);
                 //nightVis.GetComponent<DeferredNightVisionEffect>().OnDisable();
                 break;
             case playerstate.Monster:
@@ -296,7 +297,7 @@ public class ButtonPresses : MonoBehaviour
                 flashLight.SetActive(false);
                 monster.SetActive(true);
                 human.SetActive(false);
-
+                playercamera.transform.localPosition = new Vector3(0, 0.25f, 0.4f);
                 break;
         }
         //UI health
