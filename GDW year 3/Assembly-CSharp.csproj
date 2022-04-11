@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Connect.cs" />
+    <Compile Include="Assets\Cinematic\Skip.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Gameplay\MonsterPickUp.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Gameplay\ReadyCheck.cs" />
     <Compile Include="Assets\ScriptsandDLLs\Gameplay\Pickup.cs" />
