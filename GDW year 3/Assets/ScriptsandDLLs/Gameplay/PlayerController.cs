@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     //public Animator move;
     Animator animatorMonster;
 
+    //DLL move speed up for monster
     [DllImport("MonsterSpeed")]
     private static extern int MonsterSpeed();
 
@@ -81,6 +82,7 @@ public class PlayerController : MonoBehaviour
         movementDirection = new Vector3(moveinput.x, 0, moveinput.y);//Gets the input values
         movementDirection = transform.TransformDirection(movementDirection);
 
+        //Move speed power up
         if (boost == true)
         {
             timeleftboost -= Time.deltaTime;

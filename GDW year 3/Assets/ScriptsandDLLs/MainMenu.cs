@@ -21,11 +21,6 @@ public class MainMenu : MonoBehaviour {
 
     }
 
-    public void Editor()
-    {
-        SceneManager.LoadScene("LevelLeditor");
-    }
-
     public void Online()
     {
         SceneManager.LoadScene("ConnectToServer");

@@ -46,11 +46,11 @@ public class ButtonPresses : MonoBehaviour
     public ReadyCheck var;
     public GameObject human;
     public GameObject monster;
-    public GameObject ThrusterUI;
+    public GameObject ThrusterUI; //Thruster UI
     public GameObject Thruster;
-    public GameObject WingUI;
+    public GameObject WingUI; //Wing UI
     public GameObject Wing;
-    public GameObject BlasterUI;
+    public GameObject BlasterUI; //Blaster UI
     public GameObject Blaster;
     public GameObject Camera;
     public GameObject flashLight;
@@ -281,6 +281,7 @@ public class ButtonPresses : MonoBehaviour
         //State design pattern
         switch (currentstate)
         {
+            //Human settings
             case playerstate.Human:
                 gameObject.tag = "Player 1";
                 gameObject.layer = 6;
@@ -291,6 +292,7 @@ public class ButtonPresses : MonoBehaviour
                 playercamera.transform.localPosition = new Vector3(0, 0.8f, 0);
                 //nightVis.GetComponent<DeferredNightVisionEffect>().OnDisable();
                 break;
+            //Monster Settings
             case playerstate.Monster:
                 gameObject.tag = "Player 2";
                 gameObject.layer = 3;
@@ -330,6 +332,7 @@ public class ButtonPresses : MonoBehaviour
             Debug.Log("Monsters win");
             SceneManager.LoadScene("EndScreen");//When the monsters win go to the end screen
         }
+        //Random spawns for monster
         spawn = Random.Range(1, 7);
         if (monsterhealth <= 0)
         {
@@ -385,11 +388,14 @@ public class ButtonPresses : MonoBehaviour
             }
         }
 
+        
         if (Input.GetKeyDown(KeyCode.B))
         {
             humanhit();
         }
-            if (wincounter == 3)
+
+        //Human win condition
+        if (wincounter == 3)
         {
             humanWin = true;
             SceneManager.LoadScene("EndScreen");
@@ -402,6 +408,7 @@ public class ButtonPresses : MonoBehaviour
         Gizmos.DrawWireSphere(attackpointhuman.position, attackrange);
     }
 
+    //UI stuff
     public void SetHealth(float health)
     {
         slider.value = health;
