@@ -389,10 +389,10 @@ public class ButtonPresses : MonoBehaviour
         }
 
         
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            humanhit();
-        }
+        //if (Input.GetKeyDown(KeyCode.B))
+        //{
+            //humanhit();
+        //}
 
         //Human win condition
         if (wincounter == 3)
