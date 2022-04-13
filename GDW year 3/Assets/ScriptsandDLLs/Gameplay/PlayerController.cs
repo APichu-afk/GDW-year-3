@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource AlienWalk;
     //public Animator move;
     Animator animatorMonster;
-
+    Animator animatorHuman;
     //DLL move speed up for monster
     [DllImport("MonsterSpeed")]
     private static extern int MonsterSpeed();
@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         animatorMonster = GetComponent<Animator>();
+        animatorHuman = GetComponent<Animator>();
     }
 
     void Awake()
